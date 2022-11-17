@@ -14,7 +14,15 @@ const listProductsById = async (id) => {
   return { type: null, message: product };
 };
 
+const insertNewProduct = async (name) => {
+  const newProduct = await productsOfModel.insert(name);
+  const savedNewProduct = await productsOfModel.listProductsById(newProduct);
+
+  return { type: null, message: savedNewProduct };
+};
+
 module.exports = {
   listAllProducts,
   listProductsById,
+  insertNewProduct,
 };
