@@ -12,11 +12,11 @@ const listProductsById = async (id) => {
 };
 
 const insert = async (product) => {
-  const [{ newProduct }] = await connection.execute(
+  const [{ insertId }] = await connection.query(
     'INSERT INTO StoreManager.products (name) VALUES (?)',
-    [product.name],
+    [product],
   );
-  return newProduct;
+  return insertId;
 };
 
 module.exports = {
