@@ -12,7 +12,7 @@ const listProductsById = async (id) => {
 };
 
 const insert = async (product) => {
-  const [{ insertId }] = await connection.query(
+  const [{ insertId }] = await connection.execute(
     'INSERT INTO StoreManager.products (name) VALUES (?)',
     [product],
   );

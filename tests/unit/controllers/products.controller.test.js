@@ -31,7 +31,7 @@ describe('Products Controller', function () {
 
   it('É chamado com o status 404 e retorna a mensagem "Product not found"', async function () {
     // arrange - arranjo
-    const req = { params: {id: 1}};
+    const req = { params: { id: 1 }, body: {} };
     const res = {};
 
     res.status = sinon.stub().returns(res);
@@ -43,8 +43,8 @@ describe('Products Controller', function () {
     await productsController.getProductsById(req, res);
 
     // assert - aferir 
-    expect(res.status).to.have.been.calledOnceWith(404);
-    expect(res.json).to.have.been.calledWith('Product not found');
+    expect(res.status).to.have.been.calledWith(404);
+    expect(res.json).to.have.been.calledWith({ message: 'Product not found' });
   });
 
   afterEach(function () {
