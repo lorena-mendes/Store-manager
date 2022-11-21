@@ -1,7 +1,30 @@
 const salesModel = require('../models/sales.model');
+const productsModel = require('../models/products.model');
+
+const validateId = async (sales) => {
+  const salesId = sales.map((sale) => sale.productId);
+
+  const validProduct = await Promise.all(salesId.map(async (id) => {
+    const product = await productsModel.listProductsById(id);
+    return product;
+  }));
+
+  const messageError = { message: 'Product not found' };
+
+  for (let index = 0; index < validProduct.length; index += 1) {
+    if (!validProduct[index]) {
+      return { type: 404, message: messageError };
+    }
+  }
+  return {};
+};
 
 const insertNewSale = async (sales) => {
-  // console.log(sales);
+  const notFoundId = await validateId(sales);
+  if (notFoundId.message) {
+    return notFoundId;
+  }
+
   const saleId = await salesModel.insertSale();
 
   const savedSales = await Promise.all(sales
