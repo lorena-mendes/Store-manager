@@ -130,11 +130,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://www.localhost.com/products",
-    "url": "http://www.localhost.com/products",
+    "url": "http://www.localhost:3000/products",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-17T21:18:41.967Z",
-    "modified": "2022-11-17T21:18:41.967Z",
+    "modified": "2022-11-19T13:21:12.380Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -163,16 +163,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://www.localhost:3000/",
-    "url": "http://www.localhost:3000/products",
+    "url": "http://www.localhost:3000/sales",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-17T21:51:01.553Z",
-    "modified": "2022-11-17T23:12:20.766Z",
+    "modified": "2022-11-21T10:17:21.110Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Produ\"\n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  }\n]\n",
       "form": []
     },
     "tests": []
