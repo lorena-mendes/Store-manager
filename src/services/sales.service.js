@@ -36,6 +36,22 @@ const insertNewSale = async (sales) => {
   }
 };
 
+const listAllSales = async () => {
+  const sales = await salesModel.listAllSales();
+  return { type: null, message: sales };
+};
+
+const listSalesById = async (id) => {
+  const sales = await salesModel.listSalesById(id);
+
+  if (sales <= 0) {
+    return { type: true, message: 'Sale not found' };
+  }
+  return { type: null, message: sales };
+};
+
 module.exports = {
   insertNewSale,
+  listAllSales,
+  listSalesById,
 };
