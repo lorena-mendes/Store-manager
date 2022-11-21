@@ -31,20 +31,8 @@ const validateQuantity = (req, res, next) => {
   next();
 };
 
-const validateProductIdSingleItem = (req, res, next) => {
-  const sales = req.body;
-
-  const productId = sales.some((sale) => sale.productId === 1);
-
-  if (productId) {
-    return res.status(404).json({ message: 'Product not found' });
-  }
-  next();
-};
-
 module.exports = {
   validateProductId,
   validateProductQuantity,
   validateQuantity,
-  validateProductIdSingleItem,
 };

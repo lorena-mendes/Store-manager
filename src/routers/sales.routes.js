@@ -5,7 +5,6 @@ const {
   validateProductId,
   validateProductQuantity,
   validateQuantity,
-  validateProductIdSingleItem,
 } = require('../middlewares/validateSales');
 
 const router = express.Router();
@@ -14,7 +13,6 @@ router.post('',
   validateProductId,
   validateProductQuantity,
   validateQuantity,
-  validateProductIdSingleItem,
   salesController.savedNewSales);
 
 module.exports = router;
