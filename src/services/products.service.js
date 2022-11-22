@@ -23,14 +23,12 @@ const insertNewProduct = async (name) => {
 
 const updateProduct = async (name, id) => {
   const product = await productsOfModel.listProductsById(id);
-  // console.log(product);
 
   if (!product) {
     return { type: 404, message: 'Product not found' };
   }
 
   const update = await productsOfModel.updateProductById(name, id);
-  console.log(update);
   return { type: null, message: update };
 };
 
