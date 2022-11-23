@@ -25,12 +25,12 @@ describe('Products Service', function () {
     expect(response.message).to.be.deep.equal(products[0]);
   });
 
-  // // CONFERIR PORQUE ESTE IT NÃO ESTÁ PASSANDO
+  // CONFERIR PORQUE ESTE IT NÃO ESTÁ PASSANDO
   // it('Se o id informado for inválido retorna Product not Found"', async function () {
   //   sinon.stub(productsModel, 'listProductsById').resolves(undefined);
 
   //   const body = { id: 10 };
-  //   const response = await listProductsById(body);
+  //   const response = await productsModel.listProductsById(body);
 
   //   expect(response.type).to.equal(404);
   //   expect(response.message).toequal('Product not Found');

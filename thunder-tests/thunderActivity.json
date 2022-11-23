@@ -163,16 +163,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://www.localhost:3000/",
-    "url": "http://www.localhost:3000/products/1",
-    "method": "PUT",
+    "url": "http://www.localhost:3000/products/11",
+    "method": "DELETE",
     "sortNum": 0,
     "created": "2022-11-17T21:51:01.553Z",
-    "modified": "2022-11-22T22:09:46.133Z",
+    "modified": "2022-11-23T01:00:55.935Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Martelo de Batman\"\n}",
+      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
       "form": []
     },
     "tests": []
