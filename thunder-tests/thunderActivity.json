@@ -163,16 +163,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://www.localhost:3000/",
-    "url": "http://www.localhost:3000/products/11",
-    "method": "DELETE",
+    "url": "http://www.localhost:3000/products/10",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-11-17T21:51:01.553Z",
-    "modified": "2022-11-23T01:00:55.935Z",
+    "modified": "2022-11-27T22:41:15.143Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"ProdutoX\"\n}",
+      "raw": "{\n  \"name\": \"ProdutoY\"\n}",
       "form": []
     },
     "tests": []

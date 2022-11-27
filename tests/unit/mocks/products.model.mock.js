@@ -13,4 +13,13 @@ const products = [
   }
 ]
 
-module.exports = products;
+const newProduct = [
+  {
+    "name": "ProdutoX"
+  }
+]
+
+module.exports = {
+  products,
+  newProduct
+};
