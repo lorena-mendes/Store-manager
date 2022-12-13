@@ -29,8 +29,35 @@ describe('Sales Controller', function () {
     expect(res.json).to.have.been.calledWith(salesMock.sales);
   });
 
+  it('É chamado por todos as vendas com o status 404 ', async function () {
+    const req = { type: null };
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(salesService, 'listAllSales').resolves({ type: 404 });
+
+    await salesController.gettAllSales(req, res);
+
+    expect(res.status).to.have.been.calledWith(404);
+  });
+
+  it('É chamada a venda pelo id com sucesso', async function () {
+    const req = { params: { id: 1 }};
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(salesService, 'listSalesById').resolves({ type: null });
+
+    await salesController.getSalesById(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+  });
+
   it('É chamado com o status 404 e retorna a mensagem "Product not found"', async function () {
-    // arrange - arranjo
     const req = { params: { id: 1 }, body: {} };
     const res = {};
 
@@ -39,10 +66,8 @@ describe('Sales Controller', function () {
 
     sinon.stub(salesService, 'listSalesById').resolves({ type: 404, message: 'Product not found' });
 
-    // act - ação
     await salesController.getSalesById(req, res);
 
-    // assert - aferir 
     expect(res.status).to.have.been.calledWith(404);
     expect(res.json).to.have.been.calledWith({ message: 'Product not found' });
   });
