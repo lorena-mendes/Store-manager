@@ -26,6 +26,35 @@ describe('Sales Service', function () {
     expect(response.message).to.be.deep.equal(salesMock.sales[0]);
   });
 
+  it('Recebe "Sale not found" com a busca por um id inválido', async function () {
+    sinon.stub(salesModel, 'listSalesById').resolves([]);
+
+    const invalidId = { type: true, message: 'Sale not found' };
+
+    const response = await salesService.listSalesById(800);
+
+    expect(response).to.be.deep.equal(invalidId);
+  });
+
+  it('Remove venda com sucesso pelo id', async function () {
+    sinon.stub(salesModel, 'deleteSale').resolves(salesMock.sales[0]);
+    const removed = { type: 204, message: '' };
+
+    const response = await salesService.remove(1)
+
+    expect(response).to.be.deep.equal(removed);
+  });
+
+  it('Recebe "Sale not found" quando tenta deletar uma venda por um id inválido', async function () {
+    sinon.stub(salesModel, 'listSalesById').resolves([]);
+
+    const invalidId = { type: 404, message: 'Sale not found' };
+
+    const response = await salesService.remove(800)
+
+    expect(response).to.be.deep.equal(invalidId);
+  });
+
   it('Valida e cadastra venda com sucesso', async function () {
     const res = {};
     const req = {
