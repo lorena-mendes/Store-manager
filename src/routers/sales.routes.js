@@ -18,6 +18,10 @@ router.post('',
 router.get('/', salesController.gettAllSales);
 router.get('/:id', salesController.getSalesById);
 
+router.put('/:id', validateProductId,
+  validateProductQuantity,
+  validateQuantity, salesController.updateSales);
+
 router.delete('/:id', salesController.deleteSale);
 
 module.exports = router;
