@@ -1,4 +1,4 @@
-# Projeto Talker Manager
+# Projeto Store Manager
 Projeto realizado durante o curso de desenvolvimento web da Trybe.
 
 ## O que foi desenvolvido
